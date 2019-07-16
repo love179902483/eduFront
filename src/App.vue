@@ -1,31 +1,71 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+    <v-app class='app-bg' id='inspire'>
+        <notifications group="foo" />
+        <notifications group="app" />
+        <notifications :max="test" closeOnClick group="auth" width='100%' position="bottom left" />
+
+        <AppHeader></AppHeader>
+        <v-content>
+            <!-- <v-breadcrumbs class='breadcrumb-class' dark :items="items">
+                <template v-slot:divider>
+                    <v-icon>forward</v-icon>
+                </template>
+            </v-breadcrumbs> -->
+            <router-view></router-view>
+            <router-view name='leftMenu'></router-view>
+
+            <router-view name='mainlogin'></router-view>
+        </v-content>
+    </v-app>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script lang="ts">
+import AppBody from '@/views/common/body.vue';
+import AppHeader from '@/views/common/header.vue';
+import { Component, Vue } from 'vue-property-decorator';
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+@Component({
+    components: {
+        AppHeader,
+        AppBody,
+    },
+})
+export default class App extends Vue {
+    // data
+    public test: number = 3;
+    public items = [
+        {
+            text: '个人信息',
+            disabled: false,
+            href: 'breadcrumbs_dashboard',
+        },
+        {
+            text: '个人信息',
+            disabled: true,
+            href: 'breadcrumbs_dashboard',
+        },
+    ];
 }
+</script>
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+
+<style scoped sass>
+#inspire {
+    background-image: url('./inventory/bg.jpg');
+    background-size: 100% 150px;
+    background-repeat: repeat-y;
+}
+.my-notification {
+    padding: 10px;
+    background-color: blue;
+}
+.my-notification .notification-title {
+    font-size: 20px;
+}
+.my-notification .notification-content {
+    font-size: 20px;
+}
+.breadcrumb-class > .v-breadcrumbs__item {
+    color : black !important;
 }
 </style>

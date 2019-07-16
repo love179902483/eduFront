@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "strictPropertyInitialization":false,
+    "plugins": [{
+      "configFile": "tslint.json",
+      "name": "typescript-tslint-plugin",
+      "alwaysShowRuleFailuresAsWarnings": true
+    }],
+    "typeRoots": [                           /* List of folders to include type definitions from. */
+      "/src/globaltype/",
+    ],    
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -14,7 +23,12 @@
     "types": [
       "webpack-env",
       "mocha",
-      "chai"
+      "chai",
+      "vuetify",
+      "...",
+      "globaltype",
+      "user",
+      "mQuery"
     ],
     "paths": {
       "@/*": [
@@ -28,14 +42,19 @@
       "scripthost"
     ]
   },
+  "files": [
+    "/src/globaltype/user.d.ts"
+  ],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
+    "src/globaltype/*.d.ts",
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+
 }

@@ -1,19 +1,46 @@
 {
-  "defaultSeverity": "warning",
-  "extends": [
-    "tslint:recommended"
-  ],
-  "linterOptions": {
-    "exclude": [
-      "node_modules/**"
-    ]
-  },
-  "rules": {
-    "quotemark": [true, "single"],
-    "indent": [true, "spaces", 2],
-    "interface-name": false,
-    "ordered-imports": false,
-    "object-literal-sort-keys": false,
-    "no-consecutive-blank-lines": false
-  }
+    "defaultSeverity": "warning",
+    "extends": ["tslint:recommended"],
+    "linterOptions": {
+        "exclude": ["node_modules/**"]
+    },
+    "rules": {
+        "align": [
+            true,
+            "parameters",
+            "statements"
+        ],
+        "no-namespace":false,
+        "no-console": false,
+        "indent": [true, "spaces", 2],
+        "interface-name": false,
+        "object-literal-sort-keys": false,
+        "max-line-length": {
+            "options": [220]
+        },
+        "quotemark": false,
+        "curly": true,
+        "no-var-requires": true,
+        "no-empty-interface": true,
+        "only-arrow-functions": false,
+        "no-this-assignment": true,
+        "no-unbound-method": true,
+        
+        "no-use-before-declare": true,
+        "deprecation": true,
+        "no-duplicate-imports": true,
+        "arrow-return-shorthand": false,
+        "binary-expression-operand-order": true,
+        "interface-over-type-literal": true,
+        "ordered-imports": false,
+        "no-consecutive-blank-lines": [true, 2],
+        "semicolon": [true, "always"],
+        "trailing-comma": [
+            true,
+            {
+                "multiline": "always",
+                "singleline": "never"
+            }
+        ]
+    }
 }
